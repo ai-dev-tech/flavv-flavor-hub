@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCart } from "@/contexts/CartContext";
 
 const links = [
   { to: "/", label: "Home" },
@@ -13,6 +14,7 @@ const links = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { count, setIsOpen } = useCart();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
@@ -38,14 +40,35 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-foreground p-2"
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-3">
+          {/* Cart */}
+          <button
+            onClick={() => setIsOpen(true)}
+            className="relative text-foreground p-2 hover:text-primary transition-colors active:scale-95"
+            aria-label="Open cart"
+          >
+            <ShoppingBag size={22} />
+            {count > 0 && (
+              <motion.span
+                key={count}
+                initial={{ scale: 0.5 }}
+                animate={{ scale: 1 }}
+                className="absolute -top-0.5 -right-0.5 bg-primary text-primary-foreground text-xs font-heading w-5 h-5 rounded-full flex items-center justify-center"
+              >
+                {count}
+              </motion.span>
+            )}
+          </button>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden text-foreground p-2"
+            aria-label="Toggle menu"
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
