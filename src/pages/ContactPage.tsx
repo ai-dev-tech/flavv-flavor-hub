@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Instagram, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Clock, Instagram, MessageCircle, ExternalLink } from "lucide-react";
 import Layout from "@/components/Layout";
 import ScrollReveal from "@/components/ScrollReveal";
 import { openWhatsApp } from "@/lib/whatsapp";
@@ -14,7 +14,7 @@ const ContactPage = () => (
     <section className="py-24 px-4">
       <div className="container max-w-5xl">
         <ScrollReveal>
-          <h1 className="font-heading text-5xl sm:text-6xl text-primary neon-text text-center mb-4">
+          <h1 className="font-heading text-5xl sm:text-6xl text-primary neon-text text-center mb-4 leading-[1.1]">
             Get In Touch
           </h1>
           <p className="text-muted-foreground text-center mb-12">
@@ -37,7 +37,6 @@ const ContactPage = () => (
               </ScrollReveal>
             ))}
 
-            {/* Social links */}
             <ScrollReveal delay={0.3}>
               <div className="flex flex-col gap-3">
                 <a
@@ -62,17 +61,27 @@ const ContactPage = () => (
 
           {/* Map */}
           <ScrollReveal delay={0.2}>
-            <div className="rounded-xl overflow-hidden border border-border h-full min-h-[350px]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14316.13!2d68.3578!3d25.3960!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x394c70fd3d3e3a3b%3A0x2b!2sQasimabad%2C%20Hyderabad%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1"
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: 350 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="FLAVV Location - Qasimabad, Hyderabad"
-              />
+            <div className="space-y-4">
+              <div className="rounded-xl overflow-hidden border border-border h-[350px]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14316.13!2d68.3578!3d25.3960!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x394c70fd3d3e3a3b%3A0x2b!2sQasimabad%2C%20Hyderabad%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="FLAVV Location - Qasimabad, Hyderabad"
+                />
+              </div>
+              <a
+                href="https://www.google.com/maps/search/Qasimabad+Hyderabad+Sindh+Pakistan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-card border border-border hover:border-primary/40 text-foreground font-heading text-base tracking-wide px-5 py-3 rounded-xl transition-all duration-200 active:scale-[0.97]"
+              >
+                <ExternalLink size={16} /> Open in Google Maps
+              </a>
             </div>
           </ScrollReveal>
         </div>
@@ -80,7 +89,7 @@ const ContactPage = () => (
         {/* CTA */}
         <ScrollReveal delay={0.3}>
           <div className="mt-16 text-center">
-            <h2 className="font-heading text-4xl text-primary neon-text mb-6">Ready to Order?</h2>
+            <h2 className="font-heading text-4xl text-primary neon-text mb-6 leading-[1.1]">Ready to Order?</h2>
             <button
               onClick={openWhatsApp}
               className="bg-green-600 hover:bg-green-500 text-foreground font-heading text-xl tracking-wide px-10 py-4 rounded-lg transition-all duration-200 active:scale-[0.97] animate-pulse-glow inline-flex items-center gap-3"
