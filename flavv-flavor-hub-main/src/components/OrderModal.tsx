@@ -64,9 +64,9 @@ Please confirm my order. Thank you!`;
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 12 }}
             transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-[60] flex items-center justify-center px-4 sm:px-6 py-6"
+            className="fixed inset-0 z-[60] grid place-items-center px-4 sm:px-6 py-6"
           >
-            <div className="w-full max-w-xl bg-background border border-border rounded-2xl overflow-hidden flex flex-col max-h-[90vh] shadow-[0_25px_80px_-50px_rgba(0,0,0,0.9)]">
+            <div className="w-full max-w-xl bg-background border border-border rounded-2xl overflow-hidden flex flex-col max-h-[85vh] shadow-[0_25px_80px_-50px_rgba(0,0,0,0.9)]">
               <div className="flex items-center justify-between p-5 border-b border-border">
                 <h2 className="font-heading text-2xl tracking-wide text-foreground">Place Your Order</h2>
                 <button onClick={onClose} className="text-muted-foreground hover:text-foreground p-1 active:scale-95">
